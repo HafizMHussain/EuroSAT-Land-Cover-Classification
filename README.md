@@ -233,20 +233,4 @@ If you encounter any problems or have questions about the lab, review:
 
 ---
 
-**Lab Created:** December 5, 2025  
-**Course:** Machine Learning - Semester 7  
-**Institution:** National University of Sciences & Technology
-
----
-
-## ✅ Checklist
-
-- [ ] Installed all dependencies
-- [ ] Ran the complete lab script
-- [ ] Reviewed console output
-- [ ] Examined both visualization files
-- [ ] Understood Linear vs RBF SVM differences
-- [ ] Answered all lab questions
-- [ ] Explored parameter effects (C and gamma)
-
 **Happy Learning! 🎓**
