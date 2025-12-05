@@ -96,27 +96,85 @@ The script automatically generates synthetic data if the dataset is not found. T
 
 ---
 
-## 📊 Expected Output
+## 📊 Results & Output
 
-The script generates:
+### 🎯 Model Performance
 
-### Console Output:
-- Dataset loading and feature extraction summary
-- Model training progress
-- Accuracy scores for both models
-- Detailed classification reports
-- Confusion matrices
-- Answers to all lab questions
+| Model | Accuracy | Kernel | Parameters |
+|-------|----------|--------|------------|
+| **Linear SVM** | 73.67% | Linear | C=1.0 |
+| **RBF SVM** | 72.00% | RBF | C=10, gamma=0.01 |
 
-### Visualizations:
-1. **svm_visualization.png** - 4-panel figure showing:
-   - Feature space projections (R vs G, R vs B)
-   - All classes visualization
-   - Model accuracy comparison
+### 📈 Visualizations
 
-2. **gis_land_cover.png** - GIS application showing:
-   - Training data distribution
-   - New pixel prediction visualization
+#### 1. SVM Feature Space Analysis
+![SVM Visualization](svm_visualization.png)
+
+*Four-panel visualization showing:*
+- **Top Left:** Red vs Green channel comparison for two classes
+- **Top Right:** Red vs Blue channel comparison
+- **Bottom Left:** All 10 land cover classes in RGB feature space
+- **Bottom Right:** Model accuracy comparison
+
+#### 2. GIS Land Cover Classification
+![GIS Land Cover](gis_land_cover.png)
+
+*GIS application showing:*
+- **Left:** Training data distribution for 4 land cover types
+- **Right:** New pixel prediction (yellow star) classified as Urban
+
+### 💻 Sample Console Output
+
+```
+======================================================================
+EXERCISE 2: Linear SVM on EuroSAT Features
+======================================================================
+
+✓ Linear SVM trained successfully
+
+📈 Linear SVM Performance:
+  Accuracy: 73.67%
+
+📊 Classification Report:
+                      precision    recall  f1-score   support
+          AnnualCrop       0.57      0.67      0.62        30
+              Forest       1.00      1.00      1.00        30
+HerbaceousVegetation       0.57      0.53      0.55        30
+             Highway       0.83      0.83      0.83        30
+          Industrial       0.57      0.53      0.55        30
+             Pasture       0.73      0.73      0.73        30
+       PermanentCrop       0.54      0.50      0.52        30
+         Residential       0.58      0.60      0.59        30
+               River       1.00      0.97      0.98        30
+             SeaLake       0.97      1.00      0.98        30
+
+======================================================================
+MODEL COMPARISON
+======================================================================
+
+Model                Accuracy
+-----------------------------------
+Linear SVM            73.67%
+RBF Kernel SVM        72.00%
+
+Better Model:        Linear SVM
+```
+
+### 🎯 Lab Questions Answers
+
+#### Q1: Model Comparison
+- **Linear SVM Accuracy:** 73.67%
+- **RBF Kernel SVM Accuracy:** 72.00%
+- **Winner:** Linear SVM (performs better by 1.67%)
+
+#### Q2: Prediction for Pixel [R=100, G=95, B=65]
+- **Predicted Class:** Industrial/Urban
+- **Reasoning:** High red, medium-high green, medium blue values suggest tan/brown color typical of built-up areas
+
+#### Q3: Gamma Effect
+- **High Gamma (γ=1.0):** Tight, complex boundaries → Risk of overfitting
+- **Low Gamma (γ=0.001):** Smooth, gentle boundaries → Better generalization
+- **Current Gamma (γ=0.01):** Balanced setting for optimal performance
 
 ---
 
